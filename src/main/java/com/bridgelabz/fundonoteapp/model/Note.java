@@ -2,6 +2,7 @@ package com.bridgelabz.fundonoteapp.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,8 +11,8 @@ import javax.persistence.Table;
 @Table(name = "Note")
 public class Note {
 	@Id
-	private int id;
-	private int noteid;
+	private int noteId;
+
 	private String title;
 	private String description;
 	private Timestamp createdTime;
@@ -20,20 +21,23 @@ public class Note {
 	private boolean isPinned;
 	private boolean inTrash;
 
-	public int getId() {
-		return id;
+	@Column(name = "id")
+	private int userId;
+
+	public int getNoteId() {
+		return noteId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setNoteId(int noteId) {
+		this.noteId = noteId;
 	}
 
-	public int getNoteid() {
-		return noteid;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setNoteid(int noteid) {
-		this.noteid = noteid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getTitle() {
@@ -98,7 +102,8 @@ public class Note {
 
 	@Override
 	public String toString() {
-		return "Note [id=" + id + ", noteid=" + noteid + ", title=" + title + ", description=" + description + ", createdTime="
-				+ createdTime + ", updateTime=" + updateTime+ ", isArchive=" + isArchive + ", isPinned=" + isPinned + ", inTrash=" + inTrash +"]";
+		return "Note [id=" + userId + ", noteid=" + noteId + ", title=" + title + ", description=" + description
+				+ ", createdTime=" + createdTime + ", updateTime=" + updateTime + ", isArchive=" + isArchive
+				+ ", isPinned=" + isPinned + ", inTrash=" + inTrash + "]";
 	}
 }
